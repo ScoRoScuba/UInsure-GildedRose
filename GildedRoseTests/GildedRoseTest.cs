@@ -111,6 +111,16 @@ public class GildedRoseTest
         items[0].Quality.Should().Be(expectedQuality);
     }
 
+    [TestCase(5, 12, 15)]
+    [TestCase(2, 9, 12)]
+    public void BackstagePasses_QualityIncreaseBy3WhenSellinLTE5Days(int sellIn, int initialQuality, int expectedQuality)
+    {
+        var items = new List<Item> { new Item { Name = "Backstage passes to a TAFKAL80ETC concert", SellIn = sellIn, Quality = initialQuality } };
+        var app = new GildedRose(items);
 
+        app.UpdateQuality();
+
+        items[0].Quality.Should().Be(expectedQuality);
+    }
 
 }
