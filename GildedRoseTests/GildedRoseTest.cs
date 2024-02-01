@@ -53,6 +53,18 @@ public class GildedRoseTest
         items[0].Quality.Should().Be(expectedQuality);
     }
 
+    [Test]
+    public void WHenItemSellInDatePassed_QualityDoesntGoNegative()
+    {
+        var items = new List<Item> { new Item { Name = "foo", SellIn = 0, Quality = 1 } };
+        var app = new GildedRose(items);
+
+        app.UpdateQuality();
+
+        items[0].Quality.Should().Be(0);
+    }
+
+    [Test]
     public void WhenItemSulfuras_DoesNotUpdate()
     {
         var items = new List<Item> { new Item { Name = "Sulfuras, Hand of Ragnaros", SellIn = 10, Quality = 10 } };
