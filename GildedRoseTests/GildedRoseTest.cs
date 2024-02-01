@@ -1,17 +1,22 @@
 ﻿using System.Collections.Generic;
 using GildedRoseKata;
 using NUnit.Framework;
-
+using FluentAssertions;
 namespace GildedRoseTests;
 
 public class GildedRoseTest
 {
     [Test]
-    public void Foo()
+    public void Item_SellInShouldDecrease()
     {
         var items = new List<Item> { new Item { Name = "foo", SellIn = 0, Quality = 0 } };
         var app = new GildedRose(items);
+
         app.UpdateQuality();
-        Assert.AreEqual("foo", items[0].Name);
+
+        items[0].Name.Should().Be("foo");
+        items[0].SellIn.Should().Be(-1);
     }
+
+
 }
