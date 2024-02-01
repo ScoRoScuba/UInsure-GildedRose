@@ -75,4 +75,26 @@ public class GildedRoseTest
         items[0].SellIn.Should().Be(10);
         items[0].Quality.Should().Be(10);
     }
+
+    [Test]
+    public void AgedBrie_QualityIncrease() 
+    {
+        var items = new List<Item> { new Item { Name = "Aged Brie", SellIn = 10, Quality = 40 } };
+        var app = new GildedRose(items);
+
+        app.UpdateQuality();
+
+        items[0].Quality.Should().Be(41);
+    }
+
+    [Test]
+    public void AgedBrie_QualityDoesntExceed50()
+    {
+        var items = new List<Item> { new Item { Name = "Aged Brie", SellIn = 10, Quality = 50 } };
+        var app = new GildedRose(items);
+
+        app.UpdateQuality();
+
+        items[0].Quality.Should().Be(50);
+    }
 }
