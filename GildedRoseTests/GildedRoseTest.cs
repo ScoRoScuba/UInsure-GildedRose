@@ -133,4 +133,16 @@ public class GildedRoseTest
 
         items[0].Quality.Should().Be(0);
     }
+
+    [Test]
+    public void Conjured_QualityDecreasesTwiceAsFast()
+    {
+        var items = new List<Item> { new Item { Name = "Conjured", SellIn = 10, Quality = 50 } };
+        var app = new GildedRose(items);
+
+        app.UpdateQuality();
+
+        items[0].Quality.Should().Be(48);
+
+    }
 }
