@@ -123,4 +123,14 @@ public class GildedRoseTest
         items[0].Quality.Should().Be(expectedQuality);
     }
 
+    [Test]
+    public void BackstagePasses_WhenSellin0QualityGoesToZero()
+    {
+        var items = new List<Item> { new Item { Name = "Backstage passes to a TAFKAL80ETC concert", SellIn = 0, Quality = 50 } };
+        var app = new GildedRose(items);
+
+        app.UpdateQuality();
+
+        items[0].Quality.Should().Be(0);
+    }
 }
