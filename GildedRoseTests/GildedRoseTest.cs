@@ -29,4 +29,15 @@ public class GildedRoseTest
         items[0].Quality.Should().Be(0);
     }
 
+    [Test]
+    public void WHenItemQualityGreaterThan0_QualitySHouldDecrease()
+    {
+        var items = new List<Item> { new Item { Name = "foo", SellIn = 0, Quality = 1 } };
+        var app = new GildedRose(items);
+
+        app.UpdateQuality();
+
+        items[0].Quality.Should().Be(0);
+    }
+
 }
