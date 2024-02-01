@@ -87,10 +87,11 @@ public class GildedRoseTest
         items[0].Quality.Should().Be(41);
     }
 
-    [Test]
-    public void AgedBrie_QualityDoesntExceed50()
+    [TestCase("Aged Brie")]
+    [TestCase("Backstage passes to a TAFKAL80ETC concert")]
+    public void AgedBrie_QualityDoesntExceed50(string itemName)
     {
-        var items = new List<Item> { new Item { Name = "Aged Brie", SellIn = 10, Quality = 50 } };
+        var items = new List<Item> { new Item { Name = itemName, SellIn = 10, Quality = 50 } };
         var app = new GildedRose(items);
 
         app.UpdateQuality();
