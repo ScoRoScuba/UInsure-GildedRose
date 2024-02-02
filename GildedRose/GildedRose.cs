@@ -15,6 +15,18 @@ public class GildedRose
     {
         foreach( var item in _items) 
         {
+            if (item.Name == "Conjured")
+            {
+                if (item.Quality > 0)
+                {
+                    item.Quality -= item.SellIn > 0 ? 2 : 4;
+                }
+
+                item.SellIn--;
+
+                continue;
+            }
+
             if (item.Name != "Aged Brie" && item.Name != "Backstage passes to a TAFKAL80ETC concert")
             {
                 if (item.Quality > 0)

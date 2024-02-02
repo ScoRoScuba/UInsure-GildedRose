@@ -134,15 +134,15 @@ public class GildedRoseTest
         items[0].Quality.Should().Be(0);
     }
 
-    [Test]
-    public void Conjured_QualityDecreasesTwiceAsFast()
+    [TestCase(10, 50, 48)]
+    [TestCase(0, 50, 46)]
+    public void Conjured_QualityDecreasesTwiceAsFast(int sellIn, int initialQuality, int expectedQuality)
     {
-        var items = new List<Item> { new Item { Name = "Conjured", SellIn = 10, Quality = 50 } };
+        var items = new List<Item> { new Item { Name = "Conjured", SellIn = sellIn, Quality = initialQuality } };
         var app = new GildedRose(items);
 
         app.UpdateQuality();
 
-        items[0].Quality.Should().Be(48);
-
+        items[0].Quality.Should().Be(expectedQuality);
     }
 }
