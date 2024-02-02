@@ -8,6 +8,16 @@ public class GildedRose
 {
     private readonly IList<Item> _items;
 
+    // this is not ideal, y=would prefer to inject, however to make allowances for keeping class unchanged, these are created on CTOR
+    private readonly IItemUpdateService _itemUpdateService = new ItemUpdateService(new IItemUpdateRule[]
+    {
+        new DefaultItemUpdateRule(),
+        new AgedBrieItemUpdateRule(),
+        new BackstagePassItemUpdateRule(),
+        new SulfurasItemUpdateRule(),
+        new ConjuredItemUpdateRule()
+    });
+
     public GildedRose(IList<Item> items)
     {
         _items = items;
@@ -17,32 +27,7 @@ public class GildedRose
     {
         foreach( var item in _items) 
         {
-            if (item.Name == "Conjured")
-            { 
-                new ConjuredItemUpdateRule().UpdateItem(item);
-                continue;
-            }
-
-            if (item.Name == "Aged Brie")
-            {
-                new AgedBrieItemUpdateRule().UpdateItem(item);
-                continue;
-            }
-
-            if (item.Name == "Backstage passes to a TAFKAL80ETC concert")
-            {
-                new BackstagePassItemUpdateRule().UpdateItem(item);
-                continue;
-                
-            }
-
-            if (item.Name == "Sulfuras, Hand of Ragnaros")
-            {
-                new SulfurasItemUpdateRule().UpdateItem(item);
-                continue;
-            }
-
-            new DefaultItemUpdateRule().UpdateItem(item);
+            _itemUpdateService.UpdateItem(item);
         }
     }
 }

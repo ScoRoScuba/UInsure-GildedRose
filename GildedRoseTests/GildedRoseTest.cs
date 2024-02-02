@@ -26,6 +26,7 @@ public class GildedRoseTest
     public void ItemShouldUpdateToExpectedValues(string itemName, int initialSellin, int initialQuality, int expectedSellIn, int expectedQuality)
     {
         var items = new List<Item> { new Item { Name = itemName, SellIn = initialSellin, Quality = initialQuality } };
+
         var app = new GildedRose(items);
 
         app.UpdateQuality();
