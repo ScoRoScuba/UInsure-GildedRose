@@ -25,21 +25,7 @@ public class GildedRose
 
             if (item.Name == "Aged Brie")
             {
-                if (item.Quality < 50)
-                {
-                    item.Quality = item.Quality + 1;
-                }
-
-                item.SellIn = item.SellIn - 1;
-                
-                if (item.SellIn < 0)
-                {
-                    if (item.Quality < 50)
-                    {
-                        item.Quality = item.Quality + 1;
-                    }
-                }
-
+                new AgedBrieQualityRule().Update(item);
                 continue;
             }
 
