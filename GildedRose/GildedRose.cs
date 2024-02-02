@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Reflection.Metadata.Ecma335;
+using GildedRoseKata.Service;
 
 namespace GildedRoseKata;
 
@@ -17,14 +18,8 @@ public class GildedRose
         foreach( var item in _items) 
         {
             if (item.Name == "Conjured")
-            {
-                if (item.Quality > 0)
-                {
-                    item.Quality -= item.SellIn > 0 ? 2 : 4;
-                }
-
-                item.SellIn--;
-
+            { 
+                new ConjuredQualityRule().Update(item);
                 continue;
             }
 

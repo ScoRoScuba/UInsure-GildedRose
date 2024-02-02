@@ -2,6 +2,7 @@
 using GildedRoseKata;
 using NUnit.Framework;
 using FluentAssertions;
+
 namespace GildedRoseTests;
 
 public class GildedRoseTest
@@ -144,5 +145,6 @@ public class GildedRoseTest
         app.UpdateQuality();
 
         items[0].Quality.Should().Be(expectedQuality);
+
     }
 }
