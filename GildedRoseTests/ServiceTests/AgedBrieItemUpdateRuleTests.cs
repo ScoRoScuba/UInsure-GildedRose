@@ -6,12 +6,12 @@ using System.Collections.Generic;
 
 namespace GildedRoseTests.ServiceTests
 {
-    public class AgedBrieQualityRuleTests
+    public class AgedBrieItemUpdateRuleTests
     {
         [Test]
         public void QualityRule_RuleNameIsAgedBrie()
         {
-            var sut = new AgedBrieQualityRule();
+            var sut = new AgedBrieItemUpdateRule();
             sut.RuleName.Should().Be("Aged Brie");
         }
 
@@ -20,9 +20,9 @@ namespace GildedRoseTests.ServiceTests
         {
             var item = new Item { Name = "Aged Brie", SellIn = 10, Quality = 40 };
 
-            var sut = new AgedBrieQualityRule();
+            var sut = new AgedBrieItemUpdateRule();
 
-            sut.Update(item);
+            sut.UpdateItem(item);
 
             item.Quality.Should().Be(41);
         }
@@ -32,9 +32,9 @@ namespace GildedRoseTests.ServiceTests
         {
             var item = new Item { Name = "Aged Brie", SellIn = 10, Quality = 50 };
 
-            var sut = new AgedBrieQualityRule();
+            var sut = new AgedBrieItemUpdateRule();
 
-            sut.Update(item);
+            sut.UpdateItem(item);
 
             item.Quality.Should().Be(50);
         }

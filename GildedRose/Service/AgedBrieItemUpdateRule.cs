@@ -1,10 +1,12 @@
-﻿namespace GildedRoseKata.Service
-{
-    public class AgedBrieQualityRule
-    {
-        public readonly string RuleName = "Aged Brie";
+﻿using GildedRoseKata.Service;
 
-        public void Update(Item item)
+namespace GildedRoseKata.Service
+{
+    public class AgedBrieItemUpdateRule : IItemUpdateRule
+    {
+        public string RuleName => "Aged Brie";
+
+        public void UpdateItem(Item item)
         {
             if (item.Quality < 50)
             {

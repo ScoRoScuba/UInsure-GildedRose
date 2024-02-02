@@ -19,13 +19,13 @@ public class GildedRose
         {
             if (item.Name == "Conjured")
             { 
-                new ConjuredQualityRule().Update(item);
+                new ConjuredItemUpdateRule().UpdateItem(item);
                 continue;
             }
 
             if (item.Name == "Aged Brie")
             {
-                new AgedBrieQualityRule().Update(item);
+                new AgedBrieItemUpdateRule().UpdateItem(item);
                 continue;
             }
 

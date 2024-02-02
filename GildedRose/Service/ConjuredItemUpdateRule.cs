@@ -1,10 +1,11 @@
-﻿namespace GildedRoseKata.Service
+﻿
+namespace GildedRoseKata.Service
 {
-    public class ConjuredQualityRule
+    public class ConjuredItemUpdateRule : IItemUpdateRule
     {
-        public readonly string RuleName = "Conjured";
+        public string RuleName => "Conjured";
 
-        public void Update(Item item)
+        public void UpdateItem(Item item)
         {
             if (item.Quality > 0)
             {

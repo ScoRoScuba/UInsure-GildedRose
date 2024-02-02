@@ -5,12 +5,12 @@ using NUnit.Framework;
 
 namespace GildedRoseTests.ServiceTests
 {
-    public class ConjuredQualityRuleTests
+    public class ConjuredItemUpdateRuleRuleTests
     {
         [Test]
         public void ConjuredQualityRule_RuleNameIsConjured()
         {
-            var sut = new ConjuredQualityRule();
+            var sut = new ConjuredItemUpdateRule();
             sut.RuleName.Should().Be("Conjured");
         }
 
@@ -20,9 +20,9 @@ namespace GildedRoseTests.ServiceTests
         {
             var item = new Item { Name = "Conjured", SellIn = sellIn, Quality = initialQuality };
 
-            var sut = new ConjuredQualityRule();
+            var sut = new ConjuredItemUpdateRule();
 
-            sut.Update(item);
+            sut.UpdateItem(item);
 
             item.Quality.Should().Be(expectedQuality);
         }
