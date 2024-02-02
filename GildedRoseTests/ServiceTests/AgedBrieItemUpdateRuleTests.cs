@@ -8,14 +8,14 @@ namespace GildedRoseTests.ServiceTests
     public class AgedBrieItemUpdateRuleTests
     {
         [Test]
-        public void QualityRule_RuleNameIsAgedBrie()
+        public void RuleNameIsAgedBrie()
         {
             var sut = new AgedBrieItemUpdateRule();
             sut.RuleName.Should().Be("Aged Brie");
         }
 
         [Test]
-        public void QualityRule_QualityIncrease()
+        public void QualityIncrease()
         {
             var item = new Item { Name = "Aged Brie", SellIn = 10, Quality = 40 };
 
@@ -27,7 +27,7 @@ namespace GildedRoseTests.ServiceTests
         }
 
         [Test]
-        public void AgedBrie_QualityDoesntExceed50()
+        public void QualityDoesntExceed50()
         {
             var item = new Item { Name = "Aged Brie", SellIn = 10, Quality = 50 };
 

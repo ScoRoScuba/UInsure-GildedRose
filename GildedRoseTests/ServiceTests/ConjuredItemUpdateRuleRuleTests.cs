@@ -8,7 +8,7 @@ namespace GildedRoseTests.ServiceTests
     public class ConjuredItemUpdateRuleRuleTests
     {
         [Test]
-        public void ConjuredQualityRule_RuleNameIsConjured()
+        public void RuleNameIsConjured()
         {
             var sut = new ConjuredItemUpdateRule();
             sut.RuleName.Should().Be("Conjured");
@@ -16,7 +16,7 @@ namespace GildedRoseTests.ServiceTests
 
         [TestCase(10, 50, 48)]
         [TestCase(0, 50, 46)]
-        public void ConjuredQualityRule_QualityDecreasesTwiceAsFast(int sellIn, int initialQuality, int expectedQuality)
+        public void QualityDecreasesTwiceAsFast(int sellIn, int initialQuality, int expectedQuality)
         {
             var item = new Item { Name = "Conjured", SellIn = sellIn, Quality = initialQuality };
 

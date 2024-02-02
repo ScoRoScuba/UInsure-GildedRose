@@ -38,6 +38,7 @@ public class GildedRose
 
             if (item.Name == "Sulfuras, Hand of Ragnaros")
             {
+                new SulfurasItemUpdateRule().UpdateItem(item);
                 continue;
             }
 

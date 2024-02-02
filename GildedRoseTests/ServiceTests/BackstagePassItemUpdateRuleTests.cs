@@ -42,7 +42,7 @@ namespace GildedRoseTests.ServiceTests
 
         [TestCase(5, 12, 15)]
         [TestCase(2, 9, 12)]
-        public void BackstagePasses_QualityIncreaseBy3WhenSellinLTE5Days(int sellIn, int initialQuality, int expectedQuality)
+        public void QualityIncreaseBy3WhenSellinLTE5Days(int sellIn, int initialQuality, int expectedQuality)
         {
             var item = new Item { Name = "Backstage passes to a TAFKAL80ETC concert", SellIn = sellIn, Quality = initialQuality };
             var sut = new BackstagePassItemUpdateRule();
@@ -53,7 +53,7 @@ namespace GildedRoseTests.ServiceTests
         }
 
         [Test]
-        public void BackstagePasses_WhenSellin0QualityGoesToZero()
+        public void WhenSellin0QualityGoesToZero()
         {
             var items = new List<Item> { new Item { Name = "Backstage passes to a TAFKAL80ETC concert", SellIn = 0, Quality = 50 } };
             var app = new GildedRose(items);
