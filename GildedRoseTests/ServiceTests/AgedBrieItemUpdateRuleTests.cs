@@ -1,8 +1,7 @@
 ﻿using FluentAssertions;
 using GildedRoseKata;
-using GildedRoseKata.Service;
 using NUnit.Framework;
-using System.Collections.Generic;
+using GildedRoseKata.Service.ItemUpdateRules;
 
 namespace GildedRoseTests.ServiceTests
 {

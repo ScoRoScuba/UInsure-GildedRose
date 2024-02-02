@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
-using System.Reflection.Metadata.Ecma335;
 using GildedRoseKata.Service;
+using GildedRoseKata.Service.ItemUpdateRules;
 
 namespace GildedRoseKata;
 
@@ -31,33 +31,7 @@ public class GildedRose
 
             if (item.Name == "Backstage passes to a TAFKAL80ETC concert")
             {
-                if (item.Quality < 50)
-                {
-                    item.Quality = item.Quality + 1;
-
-                    if (item.SellIn < 11)
-                    {
-                        if (item.Quality < 50)
-                        {
-                            item.Quality = item.Quality + 1;
-                        }
-                    }
-
-                    if (item.SellIn < 6)
-                    {
-                        if (item.Quality < 50)
-                        {
-                            item.Quality = item.Quality + 1;
-                        }
-                    }
-                }
-
-                item.SellIn = item.SellIn - 1;
-
-                if (item.SellIn < 0)
-                {
-                    item.Quality = item.Quality - item.Quality;
-                }
+                new BackstagePassItemUpdateRule().UpdateItem(item);
                 continue;
                 
             }

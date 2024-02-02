@@ -1,6 +1,6 @@
 ﻿using FluentAssertions;
 using GildedRoseKata;
-using GildedRoseKata.Service;
+using GildedRoseKata.Service.ItemUpdateRules;
 using NUnit.Framework;
 
 namespace GildedRoseTests.ServiceTests

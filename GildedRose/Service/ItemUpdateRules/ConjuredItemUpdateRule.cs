@@ -1,5 +1,4 @@
-﻿
-namespace GildedRoseKata.Service
+﻿namespace GildedRoseKata.Service.ItemUpdateRules
 {
     public class ConjuredItemUpdateRule : IItemUpdateRule
     {

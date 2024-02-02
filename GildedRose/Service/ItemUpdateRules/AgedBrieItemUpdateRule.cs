@@ -1,6 +1,4 @@
-﻿using GildedRoseKata.Service;
-
-namespace GildedRoseKata.Service
+﻿namespace GildedRoseKata.Service.ItemUpdateRules
 {
     public class AgedBrieItemUpdateRule : IItemUpdateRule
     {
