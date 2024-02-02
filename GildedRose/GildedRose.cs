@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Reflection.Metadata.Ecma335;
 
 namespace GildedRoseKata;
 
@@ -78,6 +79,11 @@ public class GildedRose
                 }
                 continue;
                 
+            }
+
+            if (item.Name == "Sulfuras, Hand of Ragnaros")
+            {
+                continue;
             }
 
             if (item.Name != "Aged Brie" && item.Name != "Backstage passes to a TAFKAL80ETC concert")
