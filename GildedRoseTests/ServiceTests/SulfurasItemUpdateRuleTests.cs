@@ -8,7 +8,7 @@ namespace GildedRoseTests.ServiceTests
     public class SulfurasItemUpdateRuleTests
     {
         [Test]
-        public void RuleNameIsAgedBrie()
+        public void RuleNameIsSulfuras()
         {
             var sut = new SulfurasItemUpdateRule();
             sut.RuleName.Should().Be("Sulfuras, Hand of Ragnaros");
