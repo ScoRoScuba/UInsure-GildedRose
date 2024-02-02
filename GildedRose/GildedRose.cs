@@ -27,6 +27,26 @@ public class GildedRose
                 continue;
             }
 
+            if (item.Name == "Aged Brie")
+            {
+                if (item.Quality < 50)
+                {
+                    item.Quality = item.Quality + 1;
+                }
+
+                item.SellIn = item.SellIn - 1;
+                
+                if (item.SellIn < 0)
+                {
+                    if (item.Quality < 50)
+                    {
+                        item.Quality = item.Quality + 1;
+                    }
+                }
+
+                continue;
+            }
+
             if (item.Name != "Aged Brie" && item.Name != "Backstage passes to a TAFKAL80ETC concert")
             {
                 if (item.Quality > 0)
